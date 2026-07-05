@@ -138,13 +138,19 @@ const trustedTechnologies = [
   "Microsoft 365",
   "Azure",
   "Entra ID",
+  "Active Directory",
+  "Exchange Online",
+  "SharePoint",
+  "Intune",
   "WatchGuard",
-  "QuickBooks",
-  "VMware",
-  "Cisco",
+  "SonicWall",
   "Fortinet",
-  "Sophos",
   "Meraki",
+  "VMware",
+  "Hyper-V",
+  "QuickBooks",
+  "Athena Health",
+  "Dragon Medical",
   "OpenAI",
   "Anthropic",
 ];
@@ -547,11 +553,11 @@ export default function Home() {
                   Trusted Technologies
                 </p>
                 <h2 className="mt-3 text-2xl font-bold tracking-tight sm:text-3xl">
-                  Built for the platforms IT teams rely on
+                  Built around the platforms IT teams rely on
                 </h2>
                 <p className="mt-4 text-zinc-400">
-                  AzliaHawke integrates with the tools and ecosystems that power
-                  MSP, healthcare, and enterprise environments every day.
+                  AzliaHawke is being designed for the tools and ecosystems that
+                  power MSP, healthcare, and enterprise environments every day.
                 </p>
               </div>
 
