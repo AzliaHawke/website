@@ -226,17 +226,58 @@ const footerLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-function LogoMark() {
+function LogoMark({
+  className,
+  width = 41,
+  height = 36,
+  variant = "default",
+}: {
+  className?: string;
+  width?: number;
+  height?: number;
+  variant?: "default" | "large";
+}) {
+  if (variant === "large") {
+    return (
+      <img
+        src="/brand/logo-mark-lg.png"
+        srcSet="/brand/logo-mark-lg.png 1x, /brand/logo-mark-lg@2x.png 2x"
+        alt=""
+        width={width}
+        height={height}
+        className={className}
+      />
+    );
+  }
+
   return (
-    <div className="flex items-center gap-2.5">
-      <div className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#2563EB] to-[#7C3AED] shadow-lg shadow-[#2563EB]/20">
-        <span className="font-mono text-xs font-bold text-[#FAFAFA]">AH</span>
-        <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-white/20" />
-      </div>
-      <span className="text-sm font-semibold tracking-tight text-[#FAFAFA]">
-        AzliaHawke
-      </span>
-    </div>
+    <img
+      src="/brand/logo-mark.png"
+      srcSet="/brand/logo-mark.png 1x, /brand/logo-mark@2x.png 2x, /brand/logo-mark@3x.png 3x"
+      alt=""
+      width={width}
+      height={height}
+      className={className}
+    />
+  );
+}
+
+function NavbarLogo() {
+  return (
+    <LogoMark className="h-9 w-auto transition-[filter] duration-300 group-hover:drop-shadow-[0_0_10px_rgba(37,99,235,0.6),0_0_18px_rgba(124,58,237,0.45)]" />
+  );
+}
+
+function FooterWordmark() {
+  return (
+    <img
+      src="/brand/wordmark.png"
+      srcSet="/brand/wordmark.png 1x, /brand/wordmark@2x.png 2x"
+      alt="AzliaHawke — Engineering the Future of IT"
+      width={400}
+      height={95}
+      className="h-auto w-full max-w-[min(100%,400px)]"
+    />
   );
 }
 
@@ -400,8 +441,8 @@ export default function Home() {
 
         <header className="sticky top-0 z-50 border-b border-zinc-800/50 bg-[#09090B]/70 backdrop-blur-xl backdrop-saturate-150">
           <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-            <a href="#" aria-label="AzliaHawke home">
-              <LogoMark />
+            <a href="/" aria-label="AzliaHawke home" className="group inline-flex shrink-0">
+              <NavbarLogo />
             </a>
 
             <div className="hidden items-center gap-8 md:flex">
@@ -454,9 +495,7 @@ export default function Home() {
 
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl lg:leading-[1.1]">
                   Engineering the{" "}
-                  <span className="bg-gradient-to-r from-[#2563EB] via-[#7C3AED] to-[#2563EB] bg-clip-text text-transparent">
-                    Future
-                  </span>{" "}
+                  <span className="future-text">Future</span>{" "}
                   of Modern IT
                 </h1>
 
@@ -549,6 +588,12 @@ export default function Home() {
           <section className="relative border-t border-zinc-800/50 py-16 lg:py-20">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-2xl text-center">
+                <LogoMark
+                  variant="large"
+                  width={110}
+                  height={96}
+                  className="mx-auto mb-4 h-24 w-auto drop-shadow-[0_0_20px_rgba(37,99,235,0.45),0_0_32px_rgba(124,58,237,0.3)]"
+                />
                 <p className="text-sm font-medium uppercase tracking-widest text-[#7C3AED]">
                   Trusted Technologies
                 </p>
@@ -608,7 +653,7 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8 lg:py-16">
             <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
               <div>
-                <LogoMark />
+                <FooterWordmark />
                 <nav className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
                   {footerLinks.map((link) => (
                     <a
@@ -622,19 +667,26 @@ export default function Home() {
                 </nav>
               </div>
 
-              <div className="space-y-2 text-sm text-zinc-400">
-                <a
-                  href="mailto:hello@azliahawke.com"
-                  className="block transition-colors hover:text-[#FAFAFA]"
-                >
-                  hello@azliahawke.com
-                </a>
-                <a
-                  href="mailto:support@azliahawke.com"
-                  className="block transition-colors hover:text-[#FAFAFA]"
-                >
-                  support@azliahawke.com
-                </a>
+              <div className="flex items-center gap-4">
+                <LogoMark
+                  width={46}
+                  height={40}
+                  className="h-10 w-auto shrink-0 drop-shadow-[0_0_12px_rgba(37,99,235,0.35),0_0_18px_rgba(124,58,237,0.25)]"
+                />
+                <div className="space-y-2 text-sm text-zinc-400">
+                  <a
+                    href="mailto:hello@azliahawke.com"
+                    className="block transition-colors hover:text-[#FAFAFA]"
+                  >
+                    hello@azliahawke.com
+                  </a>
+                  <a
+                    href="mailto:support@azliahawke.com"
+                    className="block transition-colors hover:text-[#FAFAFA]"
+                  >
+                    support@azliahawke.com
+                  </a>
+                </div>
               </div>
             </div>
 
